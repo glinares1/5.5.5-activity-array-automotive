@@ -1,5 +1,10 @@
 class Vehicle {
+
     constructor(make, model, year, color, mileage) {
+        if (typeof(make) != "string" || typeof(model) != "string" || typeof(year) != "string" || 
+        typeof(color) != "string" || typeof(mileage) != "number" )
+
+
         this.make = make;
         this.model = model;
         this.year = year;
@@ -9,15 +14,17 @@ class Vehicle {
         this.mileage = mileage;
         this.started = false;
         this.numberOfWheels = 0;
+        this.fuel = 0;
     }
 
     start() {
         if (this.fuel > 0) {
-            return this.started = true;
             console.log("engine started...!!!");
-        } else {
-            return this.started = false;
+            return this.started = true;
+        } else
+         {
             console.log("engine cannot start...");
+            return this.started = false;
         }
     }
     accelerate() {
@@ -25,12 +32,13 @@ class Vehicle {
             if (this.fuel > 0) {
                 console.log(this.speed += 1);
                 this.fuel = this.fuel - 1;
-            } else {
+            } else
+             {
                 console.log("out of fuel.");
                 this.stop();
             }
         } else {
-            alert("You need to start the engine first.");
+            console.log("You need to start the engine first.");
         }
     }
     decelerate() {
@@ -48,7 +56,7 @@ class Vehicle {
                 this.stop();
             }
         } else {
-            alert("You need to start the engine first.");
+            console.log("You need to start the engine first.");
         }
     }
     stop() {
